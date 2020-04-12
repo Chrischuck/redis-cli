@@ -3,6 +3,7 @@ module github.com/Chrischuck/redis-cli
 go 1.14
 
 require (
+	github.com/fatih/color v1.9.0
 	github.com/fsnotify/fsnotify v1.4.9 // indirect
 	github.com/go-redis/redis v6.15.7+incompatible
 	github.com/go-redis/redis/v7 v7.2.0

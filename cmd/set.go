@@ -8,6 +8,7 @@ import (
 	"time"
 
 	"github.com/Chrischuck/redis-cli/redis"
+	"github.com/fatih/color"
 	"github.com/spf13/cobra"
 )
 
@@ -55,7 +56,9 @@ var setCmd = &cobra.Command{
 		ttlInMs, _ := time.ParseDuration(timeString)
 
 		client.Set(key, value, ttlInMs)
-		fmt.Printf("Set %s: %s\n", key, value)
+
+		message := fmt.Sprintf("Set %s: %s\n", key, value)
+		color.Green(message)
 	},
 	PostRun: func(cmd *cobra.Command, args []string) {
 		redis.Client.Close()

@@ -6,6 +6,7 @@ import (
 	"strings"
 
 	"github.com/Chrischuck/redis-cli/redis"
+	"github.com/fatih/color"
 	"github.com/spf13/cobra"
 )
 
@@ -23,7 +24,8 @@ var deleteCmd = &cobra.Command{
 
 		client.Del(args...)
 
-		fmt.Printf("Delete %s\n", strings.Join(args, ", "))
+		message := fmt.Sprintf("Delete %s\n", strings.Join(args, ", "))
+		color.Green(message)
 	},
 	PostRun: func(cmd *cobra.Command, args []string) {
 		redis.Client.Close()

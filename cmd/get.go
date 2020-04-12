@@ -5,6 +5,7 @@ import (
 	"fmt"
 
 	"github.com/Chrischuck/redis-cli/redis"
+	"github.com/fatih/color"
 	"github.com/spf13/cobra"
 )
 
@@ -27,7 +28,8 @@ var getCmd = &cobra.Command{
 
 		value := client.Get(key).Val()
 
-		fmt.Printf("Get %s: %v\n", key, value)
+		message := fmt.Sprintf("Get %s: %v\n", key, value)
+		color.Green(message)
 	},
 	PostRun: func(cmd *cobra.Command, args []string) {
 		redis.Client.Close()
