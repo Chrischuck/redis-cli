@@ -16,6 +16,8 @@ func Execute() {
 
 	rootCmd.AddCommand(connectCmd)
 	rootCmd.AddCommand(getCmd)
+	rootCmd.AddCommand(setCmd)
+
 	if err := rootCmd.Execute(); err != nil {
 		fmt.Println(err)
 		os.Exit(1)
